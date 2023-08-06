@@ -59,27 +59,6 @@ function addMouseCapture() {
     });
 }
 
-/*
-grid.forEach(gridElement => {
-    mouseUp = true;
-
-    gridElement.addEventListener('mousedown', () => {
-        mouseUp = false;
-        event.preventDefault()
-        paintOnHover(gridElement);
-    })
-
-    document.addEventListener('mouseup', () => {
-        mouseUp = true;
-    })
-
-    gridElement.addEventListener('mouseleave', () => {
-        if (mouseUp == false) paintOnHover(gridElement);
-    })
-});
-
-*/
-
 createGrid(16, 16)
 
 resetButton.addEventListener('click', resetGrid);
