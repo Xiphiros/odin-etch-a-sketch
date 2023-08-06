@@ -3,9 +3,6 @@ function createGrid(x, y) {
     containerWidth = container.offsetWidth / 16;
     containerHeight = container.offsetHeight / 16;
 
-    console.log(containerWidth);
-    console.log(containerHeight);
-
     for (let i = 0; i < x * y; i++) {
         gridElement = document.createElement('div');
         gridElement.classList.add('grid');
@@ -16,13 +13,15 @@ function createGrid(x, y) {
 }
 
 createGrid(16, 16)
-console.log(document.querySelectorAll('.grid'));
 
-/*      
-    grid = document.createElement('div');
-    container = document.querySelector('.content .container')
+grid = document.querySelectorAll('.grid');
 
-    grid.classList.add('grid');
-    container.appendChild(grid);
+grid.forEach(gridElement => {
+    gridElement.addEventListener('mouseover', () => {
+        paintOnHover(gridElement);
+    })
+});
 
-*/
+function paintOnHover(gridElement) {
+    gridElement.style.backgroundColor = '#000'
+}

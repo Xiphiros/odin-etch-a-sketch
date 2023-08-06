@@ -1,11 +1,6 @@
 html {
     box-sizing: border-box;
   }
-  *,
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  }
 
 body {
     display: flex;
@@ -28,14 +23,19 @@ body {
     flex: 1;
 }
 
-.content .container {
+.grid-container {
+    padding: 1rem;
+    background-color: #425A91;
+    box-shadow: 0.3rem 0.3rem black;
+}
+
+.grid-container .container {
     display: flex;
     flex: none;
     flex-wrap: wrap;
     align-items: flex-start;
     width: 32rem;
     height: 32rem;
-    background-color: blue;
 }
 
 .grid {
