@@ -51,10 +51,6 @@ function randomColor() {
     return randomColorCode = Math.floor(Math.random()*16777215).toString(16);
 }
 
-function eraserColor() {
-    return eraserColorCode = '#000'
-}
-
 function toggleRandomButton() {
     if (Array.from(randomButton.classList).includes('random-button.active')) {
         randomButton.classList.remove('random-button.active');
