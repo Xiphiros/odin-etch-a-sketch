@@ -1,6 +1,7 @@
 createGrid(16, 16)
 
 grid = document.querySelectorAll('.grid');
+resetButton = document.querySelector('#reset-button');
 
 function createGrid(x, y) {
     container = document.querySelector('.content .container')
@@ -12,6 +13,7 @@ function createGrid(x, y) {
         gridElement.classList.add('grid');
         gridElement.style.width = `${containerWidth / x}rem`
         gridElement.style.height = `${containerHeight / y}rem`
+        gridElement.setAttribute('draggable', false)
         container.appendChild(gridElement);
     }
 }
@@ -20,8 +22,28 @@ function paintOnHover(gridElement) {
     gridElement.style.backgroundColor = '#000'
 }
 
+function resetGrid() {
+    grid.forEach(gridElement => {
+        gridElement.style.backgroundColor = '#FFF';
+    })
+}
+
 grid.forEach(gridElement => {
-    gridElement.addEventListener('mouseover', () => {
+    mouseUp = true;
+
+    gridElement.addEventListener('mousedown', () => {
+        mouseUp = false;
+        event.preventDefault()
         paintOnHover(gridElement);
     })
+
+    gridElement.addEventListener('mouseup', () => {
+        mouseUp = true;
+    })
+
+    gridElement.addEventListener('mouseleave', () => {
+        if (mouseUp == false) paintOnHover(gridElement);
+    })
 });
+
+resetButton.addEventListener('click', resetGrid);
