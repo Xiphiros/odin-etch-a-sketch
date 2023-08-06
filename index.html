@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
     <script src="javascript/etch-a-sketch.js" defer></script>
     <title>Etch A Sketch</title>
@@ -13,7 +16,16 @@
     </div>
     <div class="content">
         <div class="menu">
-            <button type="button" id="reset-button">Reset</button>
+            <button type="button" class="reset-button">Reset</button>
+            <div class="slider-container">
+                <input type="range" min="1" max="64" step="1" value="16" class="slider">
+                    <div class="display">
+                        <p id="x-value">16</p>
+                        <p>x</p>
+                        <p id="y-value">16</p>
+                    </div>
+            </div>
+        
         </div>        
         <div class="grid-container">
             <div class="container"></div>
