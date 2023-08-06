@@ -48,7 +48,11 @@ body {
 .menu button:hover {
     cursor: pointer;
     background-color: #2E3F66;
-    box-shadow: 0.3rem 0.3rem #000;
+    box-shadow: 0.3rem 0.3rem #000; 
+}
+
+.random-button-active {
+    background-color: #212D49;
 }
 
 .slider-container {

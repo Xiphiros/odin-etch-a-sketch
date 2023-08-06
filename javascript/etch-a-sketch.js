@@ -1,6 +1,7 @@
 let grid;
 slider = document.querySelector('.slider');
 resetButton = document.querySelector('.reset-button');
+randomButton = document.querySelector('.random-button');
 
 function createGrid(x, y) {
     container = document.querySelector('.content .container')
@@ -30,13 +31,33 @@ function removeGrid(x, y) {
 }
 
 function paintOnHover(gridElement) {
-    gridElement.style.backgroundColor = '#000'
+    if (Array.from(randomButton.classList).includes('random-button.active')) {
+        gridElement.style.backgroundColor = `#${randomColor()}`
+    } else {
+        gridElement.style.backgroundColor = '#000'
+    }
 }
 
 function resetGrid() {
     grid.forEach(gridElement => {
         gridElement.style.backgroundColor = '#FFF';
     })
+}
+
+function randomColor() {
+    return randomColorCode = Math.floor(Math.random()*16777215).toString(16);
+}
+
+function toggleRandomButton() {
+    if (Array.from(randomButton.classList).includes('random-button.active')) {
+        randomButton.classList.remove('random-button.active');
+        randomButton.style.backgroundColor = '#425A91'
+        randomButton.style.margin = '0'
+    } else {
+        randomButton.classList.add('random-button.active');
+        randomButton.style.backgroundColor = '#212D49'
+        randomButton.style.margin = '0.1rem 0 0 0.1rem'
+    }
 }
 
 function addMouseCapture() {
@@ -62,6 +83,10 @@ function addMouseCapture() {
 createGrid(16, 16)
 
 resetButton.addEventListener('click', resetGrid);
+
+randomButton.addEventListener('click', () => {
+    toggleRandomButton()
+})
 
 slider.oninput = () => {
     let textDisplayX = document.querySelector('#x-value')
