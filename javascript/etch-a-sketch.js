@@ -1,3 +1,7 @@
+createGrid(16, 16)
+
+grid = document.querySelectorAll('.grid');
+
 function createGrid(x, y) {
     container = document.querySelector('.content .container')
     containerWidth = container.offsetWidth / 16;
@@ -12,16 +16,12 @@ function createGrid(x, y) {
     }
 }
 
-createGrid(16, 16)
-
-grid = document.querySelectorAll('.grid');
+function paintOnHover(gridElement) {
+    gridElement.style.backgroundColor = '#000'
+}
 
 grid.forEach(gridElement => {
     gridElement.addEventListener('mouseover', () => {
         paintOnHover(gridElement);
     })
 });
-
-function paintOnHover(gridElement) {
-    gridElement.style.backgroundColor = '#000'
-}
