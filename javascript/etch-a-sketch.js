@@ -2,6 +2,7 @@ let grid;
 slider = document.querySelector('.slider');
 resetButton = document.querySelector('.reset-button');
 randomButton = document.querySelector('.random-button');
+eraserButton = document.querySelector('.eraser-button');
 
 function createGrid(x, y) {
     container = document.querySelector('.content .container')
@@ -33,6 +34,8 @@ function removeGrid(x, y) {
 function paintOnHover(gridElement) {
     if (Array.from(randomButton.classList).includes('random-button.active')) {
         gridElement.style.backgroundColor = `#${randomColor()}`
+    } else if (Array.from(eraserButton.classList).includes('eraser-button.active')) {
+        gridElement.style.backgroundColor = '#FFF'
     } else {
         gridElement.style.backgroundColor = '#000'
     }
@@ -48,15 +51,37 @@ function randomColor() {
     return randomColorCode = Math.floor(Math.random()*16777215).toString(16);
 }
 
+function eraserColor() {
+    return eraserColorCode = '#000'
+}
+
 function toggleRandomButton() {
     if (Array.from(randomButton.classList).includes('random-button.active')) {
         randomButton.classList.remove('random-button.active');
         randomButton.style.backgroundColor = '#425A91'
         randomButton.style.margin = '0'
     } else {
+        eraserButton.classList.remove('eraser-button.active');
+        eraserButton.style.backgroundColor = '#425A91'
+        eraserButton.style.margin = '0'
         randomButton.classList.add('random-button.active');
         randomButton.style.backgroundColor = '#212D49'
         randomButton.style.margin = '0.1rem 0 0 0.1rem'
+    }
+}
+
+function toggleEraserButton() {
+    if (Array.from(eraserButton.classList).includes('eraser-button.active')) {
+        eraserButton.classList.remove('eraser-button.active');
+        eraserButton.style.backgroundColor = '#425A91'
+        eraserButton.style.margin = '0'
+    } else {
+        randomButton.classList.remove('random-button.active');
+        randomButton.style.backgroundColor = '#425A91'
+        randomButton.style.margin = '0'
+        eraserButton.classList.add('eraser-button.active');
+        eraserButton.style.backgroundColor = '#212D49'
+        eraserButton.style.margin = '0.1rem 0 0 0.1rem'
     }
 }
 
@@ -86,6 +111,10 @@ resetButton.addEventListener('click', resetGrid);
 
 randomButton.addEventListener('click', () => {
     toggleRandomButton()
+})
+
+eraserButton.addEventListener('click', () => {
+    toggleEraserButton()
 })
 
 slider.oninput = () => {
