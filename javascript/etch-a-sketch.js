@@ -37,7 +37,7 @@ grid.forEach(gridElement => {
         paintOnHover(gridElement);
     })
 
-    gridElement.addEventListener('mouseup', () => {
+    document.addEventListener('mouseup', () => {
         mouseUp = true;
     })
 
