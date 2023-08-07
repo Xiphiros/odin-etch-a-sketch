@@ -95,7 +95,7 @@ function addMouseCapture() {
             mouseUp = true;
         })
     
-        gridElement.addEventListener('mouseleave', () => {
+        gridElement.addEventListener('mouseenter', () => {
             if (mouseUp == false) paintOnHover(gridElement);
         })
     });
