@@ -113,15 +113,18 @@ eraserButton.addEventListener('click', () => {
     toggleEraserButton()
 })
 
-slider.oninput = () => {
+slider.addEventListener('input', () => {
     let textDisplayX = document.querySelector('#x-value')
     let textDisplayY = document.querySelector('#y-value')
-    let x = +event.target.value;
-    let y = +event.target.value;
+    textDisplayX.textContent = event.target.value;
+    textDisplayY.textContent = event.target.value;
+})
 
-    textDisplayX.textContent = x;
-    textDisplayY.textContent = y;
+slider.addEventListener('mouseup', () => {
+    x = +event.target.value;
+    y = +event.target.value;
 
     removeGrid();
     createGrid(x, y);
-}
+})
+
