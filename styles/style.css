@@ -62,8 +62,30 @@ body {
     box-shadow: 0.3rem 0.3rem #000; 
 }
 
-.random-button-active {
-    background-color: #212D49;
+.color-input {
+    align-self: center;
+    background: none;
+    border: none;
+}
+
+.color-input::-webkit-color-swatch-wrapper{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.color-input::-webkit-color-swatch {
+    flex: none;
+    width:2rem;
+    height: 2rem;
+    border: 2px solid #000;
+    border-radius: 1000px;
+    box-shadow: 0.2rem 0.2rem #000;
+    transition: 0.25s
+  }
+
+.color-input:hover::-webkit-color-swatch {
+    box-shadow: 0.3rem 0.3rem #000;
 }
 
 .slider-container {

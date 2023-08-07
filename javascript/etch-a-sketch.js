@@ -3,6 +3,7 @@ slider = document.querySelector('.slider');
 resetButton = document.querySelector('.reset-button');
 randomButton = document.querySelector('.random-button');
 eraserButton = document.querySelector('.eraser-button');
+colorInput = document.querySelector('.color-input');
 
 function createGrid(x, y) {
     container = document.querySelector('.content .container')
@@ -37,7 +38,7 @@ function paintOnHover(gridElement) {
     } else if (Array.from(eraserButton.classList).includes('eraser-button.active')) {
         gridElement.style.backgroundColor = '#FFF'
     } else {
-        gridElement.style.backgroundColor = '#000'
+        gridElement.style.backgroundColor = colorInput.value;
     }
 }
 
